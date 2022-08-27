@@ -1,61 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import React, { Component } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Image } from 'react-native';
+import Sobre from './screens/sobre.js';
+import Home from './screens/home.js';
+import Calculadora from './screens/calculadora.js';
+import Contato from './screens/contato.js';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <>
-      <LinearGradient
-        colors={['#0f96bf', '#043b99']}
-        start={{
-          x: 0,
-          y: 1
-        }}
-        end={{
-          x: 0,
-          y: 0
-        }}
-        style={styles.background}
-      >
-
-        <View style={styles.body}>
-          <View style={styles.border}>
-            <Text style={styles.title}>Bem-vindo!</Text>
-            <StatusBar style="auto" />
-          </View>
-        </View>
-      </LinearGradient>
-    </>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home" screenOptions={{
+        headerTransparent: true,
+        headerTintColor: 'white',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+        headerRight: () => (
+          <Image style={{width: 90, height: 50}} source={require("./assets/logo.png")}></Image>
+        ),
+      }}>
+        <Stack.Screen name="Home" component={Home} options={{ title: 'Tela inicial' }} />
+        <Stack.Screen name="Sobre" component={Sobre} options={{ title: 'Sobre' }} />
+        <Stack.Screen name="Calculadora" component={Calculadora} options={{ title: 'Calculadora' }} />
+        <Stack.Screen name="Contato" component={Contato} options={{ title: 'Contato' }} />
+      </Stack.Navigator>
+    </NavigationContainer >
   );
 }
 
-const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  body: {
-    width: "100%",
-    height: "100%",
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  border: {
-    backgroundColor: "transparent",
-    width: "90%",
-    height: "80%",
-    marginTop: 100,
-    borderWidth: 2,
-    borderColor: "#EC3DC5",
-    textAlign: "center"
-  },
-
-  title: {
-    color: "white",
-    fontSize: 30,
-    margin: "auto",
-  },
-});
+export default App;
