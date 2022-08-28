@@ -11,7 +11,7 @@ export class Home extends Component {
                 <LinearGradient
                     colors={['#0f96bf', '#043b99']}
                     start={{
-                        x: 0,
+                        x: 1,
                         y: 1
                     }}
                     end={{
@@ -22,7 +22,8 @@ export class Home extends Component {
                 >
 
                     <View style={styles.body}>
-                    <Text style={styles.title}>Bem-vindo!</Text>
+                        <StatusBar style="auto" />
+                        <Text style={styles.title}>Bem-vindo!</Text>
                         <View style={styles.logo}>
                             <Image
                                 style={{
@@ -32,23 +33,26 @@ export class Home extends Component {
                                 source={require("../assets/iel.png")}
                             />
                         </View>
-                        <StatusBar style="auto"/>
-                        <View style={{marginBottom: "20%"}}>
-                        <TouchableOpacity style={styles.button}
-                            onPress={() => this.props.navigation.push('Calculadora')}
-                        >
-                            <Text style={styles.text}>Calculadora</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button}
-                            onPress={() => this.props.navigation.push('Sobre')}
-                        >
-                            <Text style={styles.text}>Sobre</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button}
-                            onPress={() => this.props.navigation.push('Contato')}
-                        >
-                            <Text style={styles.text}>Contato</Text>
-                        </TouchableOpacity>
+
+                        <View style={{ marginBottom: "35%" }}>
+                            <TouchableOpacity style={styles.button}
+                                onPress={() => this.props.navigation.push('Calculadora')}
+                            >
+                                <Text style={styles.text}>Calculadora</Text>
+                            </TouchableOpacity>
+                            <View style={styles.buttonRow}>
+                                <TouchableOpacity style={styles.rowButton}
+                                    onPress={() => this.props.navigation.push('Sobre')}
+                                >
+                                    <Text style={styles.text}>Sobre</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.rowButton}
+                                    onPress={() => this.props.navigation.push('Info')}
+                                >
+                                    <Text style={styles.text}>Saiba mais</Text>
+                                </TouchableOpacity>
+                            </View>
+
                         </View>
                     </View>
                 </LinearGradient>

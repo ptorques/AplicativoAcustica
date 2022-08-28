@@ -12,7 +12,7 @@ export class Contato extends Component {
                 <LinearGradient
                     colors={['#0f96bf', '#043b99']}
                     start={{
-                        x: 0,
+                        x: 1,
                         y: 1
                     }}
                     end={{
@@ -24,12 +24,8 @@ export class Contato extends Component {
 
                     <View style={styles.body}>
                         <View style={styles.border}>
-                            <Text style={styles.title}>Contato</Text>
+                            <Text style={styles.title}>Info</Text>
                             <StatusBar style="auto" />
-                            <Button style={styles.button}
-                                title="Tela inicial"
-                                onPress={() => this.props.navigation.navigate('Home')}
-                            />
                         </View>
                     </View>
                 </LinearGradient>
