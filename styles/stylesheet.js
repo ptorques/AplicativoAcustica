@@ -51,10 +51,11 @@ export default StyleSheet.create({
     },
 
     buttonCalc: {
-        width: "90%",
+        width: 331,
         alignItems: "center",
         backgroundColor: "#E43397",
         padding: 15,
+        marginLeft: 0,
         margin: 10,
         marginTop: 20,
         marginBottom: 10,
@@ -128,11 +129,17 @@ export default StyleSheet.create({
         width: "90%",
     },
 
+    resultContainer: {
+        height: "50%",
+        width: "90%",
+    },
+
     textInput: {
         height: 40, 
         backgroundColor: "white",
         borderRadius: 10,
-        paddingLeft: 10
+        paddingLeft: 10,
+        width: 331,
     },
 
     resultRow: {
@@ -146,5 +153,9 @@ export default StyleSheet.create({
         width: 300,
         borderColor: "white",
         color: "white"
+    },
+
+    undisplayed: {
+        display: "none"
     }
 });
