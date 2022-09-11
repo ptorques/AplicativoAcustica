@@ -8,7 +8,7 @@ import React, { Component, useState } from 'react';
 import { View, Text, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from '../../styles/stylesheet'
-import { HANC, Johnson, Galloway} from '../models/models.js'
+import { HANC, Johnson, Galloway, Burgess, Griffiths, Fagotti} from '../models/models.js'
 
 
 export class Calculadora extends Component {
@@ -128,9 +128,9 @@ export class Calculadora extends Component {
                             {this.state.showHanc ? <HANC></HANC> : null}
                             {this.state.showJohnson ? <Johnson></Johnson> : null}
                             {this.state.showGalloway ? <Galloway></Galloway> : null}
-                            {this.state.showBurgess ? burgess() : null}
-                            {this.state.showGriffiths ? griffiths() : null}
-                            {this.state.showFagotti ? fagotti() : null}
+                            {this.state.showBurgess ? <Burgess></Burgess> : null}
+                            {this.state.showGriffiths ? <Griffiths></Griffiths> : null}
+                            {this.state.showFagotti ? <Fagotti></Fagotti> : null}
                         </View>
                     </View>
                 </LinearGradient>

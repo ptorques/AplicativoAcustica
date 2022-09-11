@@ -130,7 +130,7 @@ export default StyleSheet.create({
     },
 
     resultContainer: {
-        height: "50%",
+        maxHeight: "30%",
         width: "90%",
     },
 

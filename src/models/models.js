@@ -233,3 +233,197 @@ export class Galloway extends Component {
         );
     }
 }
+
+// calculator elements for griffiths and langdon model
+export class Griffiths extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            param1: 0,
+            param2: 0,
+            param3: 0,
+            resultL10: 0,
+            resultL50: 0,
+            resultL90: 0,
+            resultLeq: 0,
+        }
+    }
+    calcGriffiths = () => {
+        if ((this.state.param1).length > 0 && (this.state.param2).length > 0 && (this.state.param3).length > 0) {
+                var l10 = 61 + 8.4 * Math.log(parseFloat(this.state.param1)) + 0.15 * parseFloat(this.state.param3) - 11.5 * Math.log(parseFloat(this.state.param2))
+                var l50 = 44.8 + 10.8 * Math.log(parseFloat(this.state.param1)) + 0.12 * parseFloat(this.state.param3) - 9.6 * Math.log(parseFloat(this.state.param2))
+                var l90 = 39.1 + 10.5 * Math.log(parseFloat(this.state.param1)) + 0.06 * parseFloat(this.state.param3) - 9.3 * Math.log(parseFloat(this.state.param2))
+            this.setState({
+                resultL10: l10,
+                resultL50: l50,
+                resultL90: l90,
+                resultLeq: parseFloat(l50) - 0.018 * ((parseFloat(l10) - parseFloat(l90)) ** 2)
+            })
+        }
+        else {
+            alert("Parâmetros não podem ser nulos")
+        }
+    }
+    render() {
+        return (
+            <View style={{ flex: 1 }}>
+                <View style={styles.paramContainer}>
+                    <ScrollView>
+                        <Text style={styles.textSobre}>Quantidade de veículos</Text>
+                        <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Utilize pontos para valores decimais"
+                                value={this.state.param1}
+                                onChangeText={(param1) => this.setState({ param1 })}
+                                keyboardType="numeric"
+                            />
+                        </View>
+                        <Text style={styles.textSobre}>Distância entre o ponto de observação e o centro da pista (em pés)</Text>
+                        <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Utilize pontos para valores decimais"
+                                value={this.state.param2}
+                                onChangeText={(param2) => this.setState({ param2 })}
+                                keyboardType="numeric"
+                            />
+                        </View>
+                        <Text style={styles.textSobre}>Porcentagem de veículos pesados em tráfego</Text>
+                        <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Utilize pontos para valores decimais"
+                                value={this.state.param3}
+                                onChangeText={(param3) => this.setState({ param3 })}
+                                keyboardType="numeric"
+                            />
+                        </View>
+                    </ScrollView>
+                </View>
+                <TouchableOpacity style={styles.buttonCalc}
+                    onPress={() => { this.calcGriffiths() }}
+                >
+                    <Text style={styles.text}>Calcular</Text>
+                </TouchableOpacity>
+                <Text style={styles.titleSobre}>Resultados</Text>
+                <View style={styles.resultContainer}>
+                    <ScrollView>
+                        <View style={styles.resultRow}>
+                            <Text style={{ color: "white", fontSize: 30 }}>L10</Text>
+                            <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                                <Text style={styles.textResult}>{(Math.round(this.state.resultL10 * 10000)) / 10000}</Text>
+                            </View>
+                        </View>
+                        <View style={styles.resultRow}>
+                            <Text style={{ color: "white", fontSize: 30 }}>L50</Text>
+                            <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                                <Text style={styles.textResult}>{(Math.round(this.state.resultL50 * 10000)) / 10000}</Text>
+                            </View>
+                        </View>
+                        <View style={styles.resultRow}>
+                            <Text style={{ color: "white", fontSize: 30 }}>L90</Text>
+                            <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                                <Text style={styles.textResult}>{(Math.round(this.state.resultL90 * 10000)) / 10000}</Text>
+                            </View>
+                        </View>
+                        <View style={styles.resultRow}>
+                            <Text style={{ color: "white", fontSize: 30 }}>Leq</Text>
+                            <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                                <Text style={styles.textResult}>{(Math.round(this.state.resultLeq * 10000)) / 10000}</Text>
+                            </View>
+                        </View>
+                    </ScrollView>
+                </View>
+            </View>
+        );
+    }
+}
+
+// calculator elements for fagotti model
+export class Fagotti extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            param1: 0,
+            param2: 0,
+            param3: 0,
+            param4: 0,
+            result: 0
+        }
+    }
+    calcFagotti = () => {
+        if ((this.state.param1).length > 0 && (this.state.param2).length > 0 && (this.state.param3).length > 0 && (this.state.param4).length > 0) {
+            this.setState({ result: 10 * Math.log(parseFloat(this.state.param1) + parseFloat(this.state.param3) + 8 * parseFloat(this.state.param2) + 88 * parseFloat(this.state.param4)) + 33.5})
+        }
+        else {
+            alert("Parâmetros não podem ser nulos")
+        }
+    }
+    render() {
+        return (
+            <View style={{ flex: 1 }}>
+                <View style={styles.paramContainer}>
+                    <ScrollView>
+                        <Text style={styles.textSobre}>Quantidade de veículos leves</Text>
+                        <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Utilize pontos para valores decimais"
+                                value={this.state.param1}
+                                onChangeText={(param1) => this.setState({ param1 })}
+                                keyboardType="numeric"
+                            />
+                        </View>
+                        <Text style={styles.textSobre}>Quantidade de veículos pesados</Text>
+                        <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Utilize pontos para valores decimais"
+                                value={this.state.param2}
+                                onChangeText={(param2) => this.setState({ param2 })}
+                                keyboardType="numeric"
+                            />
+                        </View>
+                        <Text style={styles.textSobre}>Quantidade de motocicletas</Text>
+                        <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Utilize pontos para valores decimais"
+                                value={this.state.param3}
+                                onChangeText={(param3) => this.setState({ param3 })}
+                                keyboardType="numeric"
+                            />
+                        </View>
+                        <Text style={styles.textSobre}>Quantidade de ônibus</Text>
+                        <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Utilize pontos para valores decimais"
+                                value={this.state.param4}
+                                onChangeText={(param4) => this.setState({ param4 })}
+                                keyboardType="numeric"
+                            />
+                        </View>
+                    </ScrollView>
+                </View>
+                <TouchableOpacity style={styles.buttonCalc}
+                    onPress={() => { this.calcFagotti() }}
+                >
+                    <Text style={styles.text}>Calcular</Text>
+                </TouchableOpacity>
+                <Text style={styles.titleSobre}>Resultados</Text>
+                <View style={styles.resultContainer}>
+                    <ScrollView>
+                        <View style={styles.resultRow}>
+                            <Text style={{ color: "white", fontSize: 30 }}>Leq</Text>
+                            <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                                <Text style={styles.textResult}>{(Math.round(this.state.result * 10000)) / 10000}</Text>
+                            </View>
+                        </View>
+                    </ScrollView>
+                </View>
+            </View>
+        );
+    }
+}
