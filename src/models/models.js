@@ -234,6 +234,85 @@ export class Galloway extends Component {
     }
 }
 
+// calculator elements for burgess model
+export class Burgess extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            param1: 0,
+            param2: 0,
+            param3: 0,
+            result: 0
+        }
+    }
+    calcBurgess = () => {
+        if ((this.state.param1).length > 0 && (this.state.param2).length > 0 && (this.state.param3).length > 0) {
+            this.setState({ result: 55.5 + 10.2 * Math.log(parseFloat(this.state.param1)) + 0.3 * parseFloat(this.state.param3) - 19.3 * Math.log(parseFloat(this.state.param2))})
+        }
+        else {
+            alert("Parâmetros não podem ser nulos")
+        }
+    }
+    render() {
+        return (
+            <View style={{ flex: 1 }}>
+                <View style={styles.paramContainer}>
+                    <ScrollView>
+                        <Text style={styles.textSobre}>Quantidade de veículos</Text>
+                        <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Utilize pontos para valores decimais"
+                                value={this.state.param1}
+                                onChangeText={(param1) => this.setState({ param1 })}
+                                keyboardType="numeric"
+                            />
+                        </View>
+                        <Text style={styles.textSobre}>Distância entre o ponto de observação e o centro da pista (em pés)</Text>
+                        <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Utilize pontos para valores decimais"
+                                value={this.state.param2}
+                                onChangeText={(param2) => this.setState({ param2 })}
+                                keyboardType="numeric"
+                            />
+                        </View>
+                        <Text style={styles.textSobre}>Porcentagem de veículos pesados em tráfego</Text>
+                        <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Utilize pontos para valores decimais"
+                                value={this.state.param3}
+                                onChangeText={(param3) => this.setState({ param3 })}
+                                keyboardType="numeric"
+                            />
+                        </View>
+                    </ScrollView>
+                </View>
+                <TouchableOpacity style={styles.buttonCalc}
+                    onPress={() => { this.calcBurgess() }}
+                >
+                    <Text style={styles.text}>Calcular</Text>
+                </TouchableOpacity>
+                <Text style={styles.titleSobre}>Resultados</Text>
+                <View style={styles.resultContainer}>
+                    <ScrollView>
+                        <View style={styles.resultRow}>
+                            <Text style={{ color: "white", fontSize: 30 }}>Leq</Text>
+                            <View style={{ paddingTop: 5, paddingBottom: 10 }}>
+                                <Text style={styles.textResult}>{(Math.round(this.state.result * 10000)) / 10000}</Text>
+                            </View>
+                        </View>
+                    </ScrollView>
+                </View>
+            </View>
+        );
+    }
+}
+
+
+
 // calculator elements for griffiths and langdon model
 export class Griffiths extends Component {
     constructor(props) {
