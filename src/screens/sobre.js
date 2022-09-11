@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import styles from '../styles/stylesheet'
+import styles from '../../styles/stylesheet'
 
 export class Sobre extends Component {
     render() {

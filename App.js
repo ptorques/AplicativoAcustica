@@ -3,10 +3,10 @@ import { MenuProvider } from 'react-native-popup-menu';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Image } from 'react-native';
-import Sobre from './screens/sobre.js';
-import Home from './screens/home.js';
-import Calculadora from './screens/calculadora.js';
-import Info from './screens/info.js';
+import Sobre from './src/screens/sobre.js';
+import Home from './src/screens/home.js';
+import Calculadora from './src/screens/calculadora.js';
+import Info from './src/screens/info.js';
 
 const Stack = createNativeStackNavigator();
 

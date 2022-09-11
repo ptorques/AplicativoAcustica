@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import styles from '../styles/stylesheet'
+import styles from '../../styles/stylesheet'
 
 
 export class Contato extends Component {

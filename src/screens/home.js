@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import styles from '../styles/stylesheet'
+import styles from '../../styles/stylesheet'
 
 export class Home extends Component {
     render() {
@@ -30,7 +30,7 @@ export class Home extends Component {
                                     resizeMode: "center",
                                     marginTop: "10%",
                                 }}
-                                source={require("../assets/iel.png")}
+                                source={require("../../assets/iel.png")}
                             />
                         </View>
 

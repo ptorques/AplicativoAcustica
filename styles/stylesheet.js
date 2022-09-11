@@ -125,7 +125,7 @@ export default StyleSheet.create({
     },
 
     paramContainer: {
-        height: "32%",
+        maxHeight: "45%",
         width: "90%",
     },
 
@@ -152,7 +152,8 @@ export default StyleSheet.create({
         marginLeft: 10,
         width: 300,
         borderColor: "white",
-        color: "white"
+        color: "white",
+        fontSize: 20
     },
 
     undisplayed: {
