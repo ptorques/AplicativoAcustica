@@ -8,7 +8,7 @@ import React, { Component, useState } from 'react';
 import { View, Text, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from '../../styles/stylesheet'
-import { HANC, Johnson, Galloway, Burgess, Griffiths, Fagotti} from '../models/models.js'
+import { HANC, Johnson, Galloway, Burgess, Griffiths, Fagotti, Bolt, CSTB } from '../models/models.js'
 
 
 export class Calculadora extends Component {
@@ -24,6 +24,8 @@ export class Calculadora extends Component {
             showBurgess: false,
             showGriffiths: false,
             showFagotti: false,
+            showBolt: false,
+            showCSTB: false,
         }
     }
     // dropdown setting 
@@ -40,6 +42,8 @@ export class Calculadora extends Component {
                     showBurgess: false,
                     showGriffiths: false,
                     showFagotti: false,
+                    showBolt: false,
+                    showCSTB: false,
                 })
                 break;
             case "johnson":
@@ -50,6 +54,8 @@ export class Calculadora extends Component {
                     showBurgess: false,
                     showGriffiths: false,
                     showFagotti: false,
+                    showBolt: false,
+                    showCSTB: false,
                 })
                 break;
             case "galloway":
@@ -60,6 +66,8 @@ export class Calculadora extends Component {
                     showBurgess: false,
                     showGriffiths: false,
                     showFagotti: false,
+                    showBolt: false,
+                    showCSTB: false,
                 })
                 break;
             case "burgess":
@@ -70,6 +78,8 @@ export class Calculadora extends Component {
                     showJohnson: false,
                     showGriffiths: false,
                     showFagotti: false,
+                    showBolt: false,
+                    showCSTB: false,
                 })
                 break;
             case "griffiths":
@@ -80,6 +90,8 @@ export class Calculadora extends Component {
                     showHanc: false,
                     showJohnson: false,
                     showFagotti: false,
+                    showBolt: false,
+                    showCSTB: false,
                 })
                 break;
             case "fagotti":
@@ -90,6 +102,32 @@ export class Calculadora extends Component {
                     showHanc: false,
                     showJohnson: false,
                     showGriffiths: false,
+                    showBolt: false,
+                    showCSTB: false,
+                })
+                break;
+            case "bolt":
+                this.setState({
+                    showFagotti: false,
+                    showGalloway: false,
+                    showBurgess: false,
+                    showHanc: false,
+                    showJohnson: false,
+                    showGriffiths: false,
+                    showBolt: true,
+                    showCSTB: false,
+                })
+                break;
+            case "cstb":
+                this.setState({
+                    showFagotti: false,
+                    showGalloway: false,
+                    showBurgess: false,
+                    showHanc: false,
+                    showJohnson: false,
+                    showGriffiths: false,
+                    showBolt: false,
+                    showCSTB: true,
                 })
                 break;
             default:
@@ -123,6 +161,8 @@ export class Calculadora extends Component {
                                     <MenuOption onSelect={() => { this.updateDropdown("Burgess"); this.updateModel("burgess") }} text='Burgess' />
                                     <MenuOption onSelect={() => { this.updateDropdown("Griffiths and Langdon"); this.updateModel("griffiths") }} text='Griffiths and Langdon' />
                                     <MenuOption onSelect={() => { this.updateDropdown("Fagotti et. al"); this.updateModel("fagotti") }} text='Fagotti et. al' />
+                                    <MenuOption onSelect={() => { this.updateDropdown("Bolt, Beranek and Newman"); this.updateModel("bolt") }} text='Bolt, Beranek and Newman' />
+                                    <MenuOption onSelect={() => { this.updateDropdown("Centre Scientifique et Technique du Batiment"); this.updateModel("cstb") }} text='Centre Scientifique et Technique du Batiment' />
                                 </MenuOptions>
                             </Menu>
                             {this.state.showHanc ? <HANC></HANC> : null}
@@ -131,6 +171,8 @@ export class Calculadora extends Component {
                             {this.state.showBurgess ? <Burgess></Burgess> : null}
                             {this.state.showGriffiths ? <Griffiths></Griffiths> : null}
                             {this.state.showFagotti ? <Fagotti></Fagotti> : null}
+                            {this.state.showBolt ? <Bolt></Bolt> : null}
+                            {this.state.showCSTB ? <CSTB></CSTB> : null}
                         </View>
                     </View>
                 </LinearGradient>
