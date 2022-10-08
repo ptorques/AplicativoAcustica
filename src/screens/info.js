@@ -24,7 +24,7 @@ export class Contato extends Component {
 
                     <View style={styles.body}>
                         <View style={styles.border}>
-                            <Text style={styles.title}>Info</Text>
+                            <Text style={styles.title}>Trabalho em progresso</Text>
                             <StatusBar style="auto" />
                         </View>
                     </View>
