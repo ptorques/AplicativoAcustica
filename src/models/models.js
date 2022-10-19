@@ -400,7 +400,7 @@ export class Griffiths extends Component {
                 resultL10: l10,
                 resultL50: l50,
                 resultL90: l90,
-                resultLeq: parseFloat(l50) - 0.018 * ((parseFloat(l10) - parseFloat(l90)) ** 2)
+                resultLeq: parseFloat(l50) + 0.018 * ((parseFloat(l10) - parseFloat(l90)) ** 2)
             })
         }
         else {
