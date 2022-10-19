@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Calculadora de ruído rodoviário",
-    "slug": "Calculadora de ruído rodoviário",
-    "version": "1.0.0",
+    "name": "Calculadora de ruído",
+    "slug": "calculadora-acustica",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

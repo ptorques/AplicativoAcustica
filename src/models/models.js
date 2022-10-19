@@ -160,7 +160,7 @@ export class Galloway extends Component {
     }
     calcGalloway = () => {
         if ((this.state.param1) > 0 && (this.state.param2) > 0 && (this.state.param3) > 0 && (this.state.param4) > 0) {
-            this.setState({ result: 20 + 10 * Math.log((parseFloat(this.state.param1) * Math.pow(parseFloat(this.state.param3), 2)) / parseFloat(this.state.param2)) + 0.4 * parseFloat(this.state.param4) })
+            this.setState({ result: 20 + 10 * Math.log((parseFloat(this.state.param1) * Math.pow(parseFloat(this.state.param3), 2)) / parseFloat(this.state.param2)) + 0.4 * parseFloat(this.state.param4)/100 })
         }
         else {
             alert("Parâmetros não podem ser nulos")
@@ -247,7 +247,7 @@ export class Burgess extends Component {
     }
     calcBurgess = () => {
         if ((this.state.param1) > 0 && (this.state.param2) > 0 && (this.state.param3) > 0) {
-            this.setState({ result: 55.5 + 10.2 * Math.log(parseFloat(this.state.param1)) + 0.3 * parseFloat(this.state.param3) - 19.3 * Math.log(parseFloat(this.state.param2)) })
+            this.setState({ result: 55.5 + 10.2 * Math.log(parseFloat(this.state.param1)) + 0.3 * parseFloat(this.state.param3)/100 - 19.3 * Math.log(parseFloat(this.state.param2)) })
         }
         else {
             alert("Parâmetros não podem ser nulos")
@@ -393,9 +393,9 @@ export class Griffiths extends Component {
     }
     calcGriffiths = () => {
         if ((this.state.param1) > 0 && (this.state.param2) > 0 && (this.state.param3) > 0) {
-            var l50 = 61 + 8.4 * Math.log(parseFloat(this.state.param1)) + 0.15 * parseFloat(this.state.param3) - 11.5 * Math.log(parseFloat(this.state.param2))
-            var l10 = 44.8 + 10.8 * Math.log(parseFloat(this.state.param1)) + 0.12 * parseFloat(this.state.param3) - 9.6 * Math.log(parseFloat(this.state.param2))
-            var l90 = 39.1 + 10.5 * Math.log(parseFloat(this.state.param1)) + 0.06 * parseFloat(this.state.param3) - 9.3 * Math.log(parseFloat(this.state.param2))
+            var l50 = 61 + 8.4 * Math.log(parseFloat(this.state.param1)) + 0.15 * parseFloat(this.state.param3)/100 - 11.5 * Math.log(parseFloat(this.state.param2))
+            var l10 = 44.8 + 10.8 * Math.log(parseFloat(this.state.param1)) + 0.12 * parseFloat(this.state.param3)/100 - 9.6 * Math.log(parseFloat(this.state.param2))
+            var l90 = 39.1 + 10.5 * Math.log(parseFloat(this.state.param1)) + 0.06 * parseFloat(this.state.param3)/100 - 9.3 * Math.log(parseFloat(this.state.param2))
             this.setState({
                 resultL10: l10,
                 resultL50: l50,
